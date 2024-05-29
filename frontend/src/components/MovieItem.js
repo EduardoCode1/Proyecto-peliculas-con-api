@@ -60,16 +60,16 @@ const MovieItem = ({ movie }) => {
         </div>
       ) : (
         <div>
+          <img src={movie.imageURL} alt={movie.title} />
           <h3>{movie.title}</h3>
           <p><strong>Protagonista:</strong> {movie.protagonist}</p>
           <p><strong>Características:</strong> {movie.features}</p>
           <p><strong>Categoría:</strong> {movie.category}</p>
-          <a href={movie.movieURL}><strong>Ver Película</strong></a>
-          <br />
-          <img src={movie.imageURL} alt={movie.title} />
-          <br />
-          <button className="edit-button" onClick={handleEdit}>Editar</button>
-          <button className="delete-button" onClick={handleDelete}>Eliminar</button>
+          <a href={movie.movieURL} target="_blank" rel="noopener noreferrer">Ver</a>
+          <div>
+            <button className="edit-button" onClick={handleEdit}>Editar</button>
+            <button className="delete-button" onClick={handleDelete}>Eliminar</button>
+          </div>
         </div>
       )}
     </div>

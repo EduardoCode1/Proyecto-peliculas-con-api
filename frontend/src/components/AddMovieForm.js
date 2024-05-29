@@ -1,6 +1,6 @@
-// frontend/src/components/AddMovieForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import './AddMovieForm.css'; // Importando el archivo CSS
 
 const AddMovieForm = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +21,6 @@ const AddMovieForm = () => {
     axios.post('http://localhost:5000/movies', formData)
       .then(response => {
         console.log('Movie added:', response.data);
-        // Clear form data after successful submission
         setFormData({
           title: '',
           protagonist: '',
@@ -30,6 +29,7 @@ const AddMovieForm = () => {
           imageURL: '',
           category: ''
         });
+        window.location.reload();
       })
       .catch(error => {
         console.error('Error adding movie:', error);
@@ -37,7 +37,7 @@ const AddMovieForm = () => {
   };
 
   return (
-    <div>
+    <div className="add-movie-form">
       <h2>Agregar Película</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="title" placeholder="Título" value={formData.title} onChange={handleChange} />

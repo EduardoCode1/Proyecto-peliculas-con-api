@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MovieItem from './MovieItem';
+import './MovieList.css';
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -17,11 +18,13 @@ const MovieList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h2>Lista de Películas</h2>
-      {movies.map(movie => (
-        <MovieItem key={movie._id} movie={movie} />
-      ))}
+      <div className="movie-list">
+        {movies.map(movie => (
+          <MovieItem key={movie._id} movie={movie} />
+        ))}
+      </div>
     </div>
   );
 };
